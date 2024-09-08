@@ -20,7 +20,7 @@ export function ArtEducationApp() {
               </Avatar>
               <h2 className="mt-4 text-2xl font-semibold">李梦</h2>
               <div className="flex items-center">
-                <span className="text-base text-gray-600">高级讲师34</span>
+                <span className="text-base text-gray-600">高级讲师</span>
               </div>
               <div className="flex mt-2 space-x-2 text-sm text-gray-500">
                 <span>插画</span>
