@@ -18,7 +18,7 @@ export function ArtEducationApp() {
                 <AvatarImage src="/placeholder.svg?height=192&width=192" alt="李梦瑶" />
                 <AvatarFallback>LMY</AvatarFallback>
               </Avatar>
-              <h2 className="mt-4 text-2xl font-semibold">李梦瑶</h2>
+              <h2 className="mt-4 text-2xl font-semibold">李梦</h2>
               <div className="flex items-center">
                 <span className="text-base text-gray-600">高级讲师34</span>
               </div>
