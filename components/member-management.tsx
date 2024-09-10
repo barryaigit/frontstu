@@ -4,23 +4,27 @@ import Image from 'next/image'
 import { Bell, Calendar, Home, MoreVertical, Plus, Search } from 'lucide-react'
 
 const members = [
-  { name: 'Carlos Garcia', role: 'Owner', avatar: '/placeholder.svg?height=90&width=90&text=CG', bgColor: 'bg-purple-200' },
-  { name: 'Jennifer Robinson', role: 'Member', avatar: '/placeholder.svg?height=90&width=90&text=JR', bgColor: 'bg-blue-200' },
-  { name: 'Anthony Davis', role: 'Member', avatar: '/placeholder.svg?height=90&width=90&text=AD', bgColor: 'bg-pink-200' },
+  { name: 'Carlos Garcia', role: 'Owner', initials: 'CG', bgColor: 'bg-purple-200' },
+  { name: 'Jennifer Robinson', role: 'Member', initials: 'JR', bgColor: 'bg-blue-200' },
+  { name: 'Anthony Davis', role: 'Member', initials: 'AD', bgColor: 'bg-pink-200' },
 ]
+
+// 修改 PlaceholderAvatar 组件
+const PlaceholderAvatar = ({ initials, bgColor, size = 'large' }: { initials: string; bgColor: string; size?: 'small' | 'large' }) => {
+  const sizeClasses = size === 'small' ? 'w-9 h-9 text-sm' : 'w-[90px] h-[90px] text-2xl';
+  return (
+    <div className={`${sizeClasses} rounded-full ${bgColor} flex items-center justify-center font-bold text-gray-700`}>
+      {initials}
+    </div>
+  );
+};
 
 export function MemberManagement() {
   return (
     <div className="w-[390px] h-[844px] bg-white shadow-md relative">
       <header className="h-[180px] bg-white rounded p-4">
         <div className="flex justify-between items-center">
-          <Image
-            src="/placeholder.svg?height=36&width=36"
-            alt="Profile"
-            width={36}
-            height={36}
-            className="rounded-full"
-          />
+          <PlaceholderAvatar initials="ME" bgColor="bg-gray-200" size="small" />
           <button className="text-2xl text-gray-600">•••</button>
         </div>
         <h1 className="text-2xl font-bold text-[#171A1F] mt-10 mb-4">Members</h1>
@@ -33,21 +37,13 @@ export function MemberManagement() {
 
       <main className="p-5 grid grid-cols-2 gap-4">
         {members.map((member, index) => (
-          <div key={index} className="w-[166px] h-[178px] bg-white border border-[#DEE1E6] rounded-lg p-3 relative">
+          <div key={index} className="w-[166px] h-[178px] bg-white border border-[#DEE1E6] rounded-lg p-3 relative flex flex-col items-center justify-center">
             <button className="absolute right-3 top-3">
               <MoreVertical size={20} className="text-[#6F7787]" />
             </button>
-            <div className={`w-[90px] h-[90px] mx-auto mb-2 rounded-full ${member.bgColor} flex items-center justify-center`}>
-              <Image
-                src={member.avatar}
-                alt={member.name}
-                width={90}
-                height={90}
-                className="rounded-full"
-              />
-            </div>
-            <h3 className="text-center font-semibold text-sm text-[#323743]">{member.name}</h3>
-            <p className="text-center text-xs text-[#9095A1]">{member.role}</p>
+            <PlaceholderAvatar initials={member.initials} bgColor={member.bgColor} />
+            <h3 className="mt-2 font-semibold text-sm text-[#323743]">{member.name}</h3>
+            <p className="text-xs text-[#9095A1]">{member.role}</p>
           </div>
         ))}
         <div className="w-[166px] h-[178px] bg-[#F5F1FE] border border-[#DEE1E6] rounded-lg p-3 relative">
