@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { Bell, Calendar, Home, MoreVertical, Plus, Search } from 'lucide-react'
 
 const members = [
