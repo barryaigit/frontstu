@@ -1,5 +1,5 @@
-import { ArtEducationApp } from "@/components/art-education-app"
+import { MemberManagement } from "@/components/member-management"
 
 export default function Page() {
-  return <ArtEducationApp />
+  return <MemberManagement />
 }
