@@ -1,3 +1,12 @@
+/* Add these styles at the top of the file */
+html, body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

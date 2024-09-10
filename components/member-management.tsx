@@ -38,7 +38,22 @@ export function MemberManagement() {
     }
     updateHeight()
     window.addEventListener('resize', updateHeight)
-    return () => window.removeEventListener('resize', updateHeight)
+
+    // New code to disable zooming
+    const metaViewport = document.querySelector('meta[name=viewport]')
+    if (metaViewport) {
+      metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    } else {
+      const newMeta = document.createElement('meta')
+      newMeta.name = 'viewport'
+      newMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+      document.head.appendChild(newMeta)
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateHeight)
+      // Optionally, you can reset the viewport meta tag here if needed
+    }
   }, [])
 
   return (
