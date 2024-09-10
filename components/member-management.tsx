@@ -3,6 +3,7 @@
 import { Bell, Calendar, Home, MoreVertical, Plus, Search } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
+
 const members = [
   { name: 'Carlos Garcia', role: 'Owner', initials: 'CG', bgColor: 'bg-purple-200' },
   { name: 'Jennifer Robinson', role: 'Member', initials: 'JR', bgColor: 'bg-blue-200' },
@@ -10,8 +11,12 @@ const members = [
 ]
 
 // 修改 PlaceholderAvatar 组件
-const PlaceholderAvatar = ({ initials, bgColor, size = 'large' }: { initials: string; bgColor: string; size?: 'small' | 'large' }) => {
-  const sizeClasses = size === 'small' ? 'w-9 h-9 text-sm' : 'w-[90px] h-[90px] text-2xl';
+const PlaceholderAvatar = ({ initials, bgColor, size = 'large' }: { initials: string; bgColor: string; size?: 'small' | 'medium' | 'large' }) => {
+  const sizeClasses = {
+    small: 'w-9 h-9 text-sm',
+    medium: 'w-16 h-16 text-lg',
+    large: 'w-[90px] h-[90px] text-2xl'
+  }[size];
   return (
     <div className={`${sizeClasses} rounded-full ${bgColor} flex items-center justify-center font-bold text-gray-700`}>
       {initials}
@@ -46,25 +51,25 @@ export function MemberManagement() {
         </nav>
       </header>
 
-      <main className="flex-grow p-5 grid grid-cols-2 gap-4 overflow-y-auto">
+      <main className="flex-grow p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto">
         {members.map((member, index) => (
-          <div key={index} className="w-[166px] h-[178px] bg-white border border-[#DEE1E6] rounded-lg p-3 relative flex flex-col items-center justify-center">
-            <button className="absolute right-3 top-3">
-              <MoreVertical size={20} className="text-[#6F7787]" />
+          <div key={index} className="bg-white border border-[#DEE1E6] rounded-lg p-3 relative flex flex-col items-center justify-center">
+            <button className="absolute right-2 top-2">
+              <MoreVertical size={16} className="text-[#6F7787]" />
             </button>
-            <PlaceholderAvatar initials={member.initials} bgColor={member.bgColor} />
-            <h3 className="mt-2 font-semibold text-sm text-[#323743]">{member.name}</h3>
-            <p className="text-xs text-[#9095A1]">{member.role}</p>
+            <PlaceholderAvatar initials={member.initials} bgColor={member.bgColor} size="small" />
+            <h3 className="mt-2 font-semibold text-xs sm:text-sm text-[#323743] text-center">{member.name}</h3>
+            <p className="text-[10px] sm:text-xs text-[#9095A1]">{member.role}</p>
           </div>
         ))}
-        <div className="w-[166px] h-[178px] bg-[#F5F1FE] border border-[#DEE1E6] rounded-lg p-3 relative">
-          <button className="absolute right-3 top-3">
-            <MoreVertical size={20} className="text-[#6F7787]" />
+        <div className="bg-[#F5F1FE] border border-[#DEE1E6] rounded-lg p-3 relative flex flex-col items-center justify-center">
+          <button className="absolute right-2 top-2">
+            <MoreVertical size={16} className="text-[#6F7787]" />
           </button>
-          <div className="w-[90px] h-[90px] mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
-            <Plus size={32} className="text-[#6D31ED]" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 mb-2 bg-white rounded-full flex items-center justify-center">
+            <Plus size={24} className="text-[#6D31ED]" />
           </div>
-          <h3 className="text-center font-semibold text-sm text-[#323743]">Invite people</h3>
+          <h3 className="text-center font-semibold text-xs sm:text-sm text-[#323743]">Invite people</h3>
         </div>
       </main>
 
