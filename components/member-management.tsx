@@ -8,6 +8,11 @@ const members = [
   { name: 'Carlos Garcia', role: 'Owner', initials: 'CG', bgColor: 'bg-purple-200' },
   { name: 'Jennifer Robinson', role: 'Member', initials: 'JR', bgColor: 'bg-blue-200' },
   { name: 'Anthony Davis', role: 'Member', initials: 'AD', bgColor: 'bg-pink-200' },
+  { name: 'Emma Wilson', role: 'Member', initials: 'EW', bgColor: 'bg-green-200' },
+  { name: 'Michael Brown', role: 'Member', initials: 'MB', bgColor: 'bg-yellow-200' },
+  { name: 'Sophia Lee', role: 'Member', initials: 'SL', bgColor: 'bg-red-200' },
+  { name: 'Daniel Kim', role: 'Member', initials: 'DK', bgColor: 'bg-indigo-200' },
+  { name: 'Olivia Taylor', role: 'Member', initials: 'OT', bgColor: 'bg-orange-200' },
 ]
 
 // 修改 PlaceholderAvatar 组件
