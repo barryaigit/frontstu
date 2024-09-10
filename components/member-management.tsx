@@ -1,6 +1,7 @@
 'use client'
 
 import { Bell, Calendar, Home, MoreVertical, Plus, Search } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 const members = [
   { name: 'Carlos Garcia', role: 'Owner', initials: 'CG', bgColor: 'bg-purple-200' },
@@ -19,9 +20,20 @@ const PlaceholderAvatar = ({ initials, bgColor, size = 'large' }: { initials: st
 };
 
 export function MemberManagement() {
+  const [windowHeight, setWindowHeight] = useState(0)
+
+  useEffect(() => {
+    const updateHeight = () => {
+      setWindowHeight(window.innerHeight)
+    }
+    updateHeight()
+    window.addEventListener('resize', updateHeight)
+    return () => window.removeEventListener('resize', updateHeight)
+  }, [])
+
   return (
-    <div className="w-[390px] h-[844px] bg-white shadow-md relative">
-      <header className="h-[180px] bg-white rounded p-4">
+    <div className="w-full min-h-screen bg-white shadow-md relative flex flex-col" style={{ height: `${windowHeight}px` }}>
+      <header className="flex-none h-auto bg-white rounded p-4">
         <div className="flex justify-between items-center">
           <PlaceholderAvatar initials="ME" bgColor="bg-gray-200" size="small" />
           <button className="text-2xl text-gray-600">•••</button>
@@ -34,7 +46,7 @@ export function MemberManagement() {
         </nav>
       </header>
 
-      <main className="p-5 grid grid-cols-2 gap-4">
+      <main className="flex-grow p-5 grid grid-cols-2 gap-4 overflow-y-auto">
         {members.map((member, index) => (
           <div key={index} className="w-[166px] h-[178px] bg-white border border-[#DEE1E6] rounded-lg p-3 relative flex flex-col items-center justify-center">
             <button className="absolute right-3 top-3">
@@ -56,7 +68,7 @@ export function MemberManagement() {
         </div>
       </main>
 
-      <footer className="fixed bottom-0 left-0 right-0 h-20 bg-white shadow-md">
+      <footer className="flex-none h-20 bg-white shadow-md">
         <nav className="flex justify-around items-center h-full">
           <button className="flex flex-col items-center">
             <Home className="w-6 h-6 text-[#6D31ED]" />
