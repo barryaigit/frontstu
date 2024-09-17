@@ -1,5 +1,5 @@
-import { CourseDetailsComponent } from "@/components/course-details"
+import { HomePageComponent } from "@/components/home-page"
 
 export default function Page() {
-  return <CourseDetailsComponent />
+  return <HomePageComponent />
 }
