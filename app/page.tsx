@@ -1,5 +1,5 @@
-import { MemberManagement } from "@/components/member-management"
+import { CourseDetailsComponent } from "@/components/course-details"
 
 export default function Page() {
-  return <MemberManagement />
+  return <CourseDetailsComponent />
 }
