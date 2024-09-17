@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Bell, ShoppingCart, Home, Search, BookOpen, User, ChevronRight } from 'lucide-react'
+import { Bell, ShoppingCart, Home, Search, BookOpen, User, ChevronRight, MessageCircle, Phone, Share2, MoreVertical } from 'lucide-react'
 
 export function HomePageComponent() {
   return (
@@ -20,8 +20,43 @@ export function HomePageComponent() {
 
       {/* 主要内容 */}
       <main className="pb-20">
+        {/* 讲师资料卡 */}
+        <div className="mx-5 mt-4 mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="relative p-4 pb-16">
+            <div className="absolute w-16 h-2 bg-white left-1/2 -translate-x-1/2 -top-1 rounded"></div>
+            <div className="flex flex-col items-center">
+              <div className="w-24 h-24 bg-[#CACDF8] rounded-full mb-4 overflow-hidden">
+                <Image src="/placeholder.svg" alt="李梦瑶" width={96} height={96} className="w-full h-full object-cover" />
+              </div>
+              <h2 className="text-xl font-semibold mb-1">李梦瑶</h2>
+              <p className="text-gray-500 mb-4">高级讲师</p>
+              <div className="flex space-x-4 mb-4">
+                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-white" />
+                </button>
+                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-white" />
+                </button>
+                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
+                  <Share2 className="w-5 h-5 text-white" />
+                </button>
+                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
+                  <MoreVertical className="w-5 h-5 text-white" />
+                </button>
+              </div>
+            </div>
+            <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center">
+              <p className="flex items-center text-sm mb-1">
+                <Phone className="w-4 h-4 mr-2" />
+                202-555-0123
+              </p>
+              <p className="text-sm text-gray-500">example@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
         {/* 特色课程 */}
-        <div className="bg-[#F1C932] rounded-lg p-4 mx-5 mt-4 mb-6 relative overflow-hidden h-[156px]">
+        <div className="bg-[#F1C932] rounded-lg p-4 mx-5 mb-6 relative overflow-hidden h-[156px]">
           <div>
             <p className="text-[#101778] uppercase text-sm mb-1">项目管理</p>
             <h2 className="text-[#101778] text-2xl font-bold mb-2">八折优惠</h2>
