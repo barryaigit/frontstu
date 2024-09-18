@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Bell, ShoppingCart, Home, Search, BookOpen, User, ChevronRight, MessageCircle, Phone, Share2, MoreVertical } from 'lucide-react'
+import { Bell, ShoppingCart, Home, Search, BookOpen, User, ChevronRight, Phone, MessageCircle, MapPin, Share2 } from 'lucide-react'
 
 export function HomePageComponent() {
   return (
@@ -21,36 +21,46 @@ export function HomePageComponent() {
       {/* 主要内容 */}
       <main className="pb-20">
         {/* 讲师资料卡 */}
-        <div className="mx-5 mt-4 mb-6 bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="relative p-4 pb-16">
-            <div className="absolute w-16 h-2 bg-white left-1/2 -translate-x-1/2 -top-1 rounded"></div>
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-[#CACDF8] rounded-full mb-4 overflow-hidden">
-                <Image src="/placeholder.svg" alt="李梦瑶" width={96} height={96} className="w-full h-full object-cover" />
-              </div>
-              <h2 className="text-xl font-semibold mb-1">李梦瑶</h2>
-              <p className="text-gray-500 mb-4">高级讲师</p>
-              <div className="flex space-x-4 mb-4">
-                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-white" />
-                </button>
-                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-white" />
-                </button>
-                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
-                  <Share2 className="w-5 h-5 text-white" />
-                </button>
-                <button className="w-11 h-11 bg-[#535CE8] rounded-full flex items-center justify-center">
-                  <MoreVertical className="w-5 h-5 text-white" />
-                </button>
+        <div className="mx-5 mt-4 mb-6 relative overflow-hidden rounded-lg shadow-md">
+          <div className="relative h-32">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%204-FWByqvuvb0jQWJoIFiNCqGGygarFPf.png"
+              alt="Sara Weise background"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <div className="bg-white pt-16 pb-4 px-4 text-center relative">
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-[#F5D0F4]">
+              <Image
+                src="/placeholder.svg"
+                alt="Sara Weise"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <div className="flex items-center justify-center mb-1">
+              <h2 className="text-lg font-bold mr-2">李梦瑶</h2>
+              <div className="inline-block bg-[#6355D8] text-white text-xs px-2 py-1 rounded-full">
+                高级讲师
               </div>
             </div>
-            <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center">
-              <p className="flex items-center text-sm mb-1">
-                <Phone className="w-4 h-4 mr-2" />
-                202-555-0123
-              </p>
-              <p className="text-sm text-gray-500">example@gmail.com</p>
+            <p className="text-sm text-gray-600 mb-1">UI/UX Designer</p>
+            <p className="text-xs text-gray-500 mb-4">New York - 09:30 AM</p>
+            <div className="flex justify-center space-x-6">
+              {[
+                { icon: Phone, label: '电话' },
+                { icon: MessageCircle, label: '微信' },
+                { icon: MapPin, label: '导航' },
+                { icon: Share2, label: '分享' },
+              ].map((item, index) => (
+                <button key={index} className="flex flex-col items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mb-1">
+                    <item.icon className="w-6 h-6 text-gray-600" />
+                  </div>
+                  <span className="text-[10px] text-gray-600">{item.label}</span>
+                </button>
+              ))}
             </div>
           </div>
         </div>
