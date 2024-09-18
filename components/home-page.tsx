@@ -9,7 +9,7 @@ export function HomePageComponent() {
       {/* 头部 */}
       <header className="bg-[#535CE8] text-white p-5 h-[110px]">
         <div className="flex justify-between items-center mb-2">
-          <h1 className="text-xl font-semibold">你好，小红！</h1>
+          <h1 className="text-xl font-semibold">你好，同学！</h1>
           <div className="flex space-x-4">
             <ShoppingCart className="w-6 h-6" />
             <Bell className="w-6 h-6" />
@@ -24,7 +24,7 @@ export function HomePageComponent() {
         <div className="mx-5 mt-4 mb-6 relative overflow-hidden rounded-lg shadow-md">
           <div className="relative h-32">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%204-FWByqvuvb0jQWJoIFiNCqGGygarFPf.png"
+              src="/background.png"
               alt="Sara Weise background"
               layout="fill"
               objectFit="cover"
@@ -33,8 +33,8 @@ export function HomePageComponent() {
           <div className="bg-white pt-16 pb-4 px-4 text-center relative">
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-[#F5D0F4]">
               <Image
-                src="/placeholder.svg"
-                alt="Sara Weise"
+                src="/teacher1.png"
+                alt=""
                 layout="fill"
                 objectFit="cover"
               />
@@ -73,8 +73,8 @@ export function HomePageComponent() {
             <button className="bg-[#535CE8] text-white px-4 py-2 rounded text-sm">立即加入</button>
           </div>
           <Image
-            src="/placeholder.svg"
-            alt="项目管理"
+            src="/project.png"
+            alt=""
             width={99}
             height={148}
             className="absolute right-2 bottom-2"
@@ -123,7 +123,7 @@ export function HomePageComponent() {
               {['PHP 速成', 'Python 入门', 'JavaScript 基础', 'React 精通'].map((course, index) => (
                 <div key={index} className="flex-shrink-0 w-[198px] border rounded-lg overflow-hidden">
                   <div className="relative">
-                    <Image src="/placeholder.svg" alt={course} width={198} height={116} className="w-full h-[116px] object-cover" />
+                    <Image src="/php.png" alt={course} width={198} height={116} className="w-full h-[116px] object-cover" />
                     {index === 1 && (
                       <span className="absolute top-4 left-4 bg-[#535CE8] text-white text-xs px-2 py-1 rounded">
                         畅销
@@ -162,7 +162,7 @@ export function HomePageComponent() {
               {['网页设计', 'UX 研究方法', '移动应用设计', '数据可视化'].map((course, index) => (
                 <div key={index} className="flex-shrink-0 w-[198px] border rounded-lg overflow-hidden">
                   <div className="relative">
-                    <Image src="/placeholder.svg" alt={course} width={198} height={116} className="w-full h-[116px] object-cover" />
+                    <Image src="/web.png" alt={course} width={198} height={116} className="w-full h-[116px] object-cover" />
                     <span className={`absolute top-4 left-4 ${index === 0 ? 'bg-[#535CE8] text-white' : 'bg-[#F1C932] text-[#5C4906]'} text-xs px-2 py-1 rounded`}>
                       {index === 0 ? '畅销' : '八折'}
                     </span>
@@ -197,7 +197,7 @@ export function HomePageComponent() {
           <div className="space-y-4">
             {['数字肖像绘画', '工作空间装饰', '包装设计'].map((course, index) => (
               <div key={index} className="flex border rounded-lg overflow-hidden h-[120px]">
-                <Image src="/placeholder.svg" alt={course} width={96} height={96} className="w-24 h-full object-cover" />
+                <Image src="/design.png" alt={course} width={96} height={96} className="w-24 h-full object-cover" />
                 <div className="p-3 flex-grow">
                   <h3 className="font-bold text-sm mb-1">{course}</h3>
                   <p className="text-gray-500 text-xs mb-2">
@@ -231,7 +231,7 @@ export function HomePageComponent() {
             <div className="pl-5 flex space-x-4">
               {['陈教授', '李博士', '张老师', '王讲师', '刘教授'].map((teacher, index) => (
                 <div key={index} className="flex-shrink-0 w-[152px] border rounded-lg overflow-hidden">
-                  <Image src="/placeholder.svg" alt={teacher} width={128} height={93} className="w-full h-[93px] object-cover" />
+                  <Image src="/pro.png" alt={teacher} width={128} height={93} className="w-full h-[93px] object-cover" />
                   <div className="p-3">
                     <h3 className="font-bold text-sm mb-1">{teacher}</h3>
                     <p className="text-gray-500 text-xs mb-2">
