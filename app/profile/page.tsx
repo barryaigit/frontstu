@@ -4,7 +4,7 @@ import { BottomNavigation } from "@/components/BottomNavigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { BookmarkIcon, HomeIcon, SearchIcon, BookOpenIcon, UserIcon, StarIcon } from "lucide-react"
+import { BookmarkIcon, StarIcon } from "lucide-react"
 import Image from "next/image"
 
 export default function ProfilePage() {
