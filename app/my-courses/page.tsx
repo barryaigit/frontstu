@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { Book, Home, Search, User } from 'lucide-react'
 import { BottomNavigation } from "@/components/BottomNavigation"
 
 export default function MyCoursesPage() {

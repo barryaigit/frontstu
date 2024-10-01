@@ -1,10 +1,5 @@
 'use client'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { BookmarkIcon, StarIcon } from "lucide-react"
-import Image from "next/image"
 import { BottomNavigation } from "@/components/BottomNavigation"
 
 export default function ProfilePage() {
