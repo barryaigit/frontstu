@@ -175,9 +175,9 @@ export function HomePage() {
           </div>
           <div className="flex space-x-4 overflow-x-auto pb-4">
             {[
-              { name: '陈明', image: '/Image 83.png', university: '北京大学', rating: '4.5', reviews: '1233' },
-              { name: '李华', image: '/Image 83.png', university: '清华大学', rating: '4.5', reviews: '1233' },
-              { name: '张三', image: '/Image 83.png', university: '复旦大学', rating: '4.5', reviews: '1233' },
+              { name: '陈明', image: '/teacher1.png', university: '北京大学', rating: '4.5', reviews: '1233' },
+              { name: '李华', image: '/teacher1.png', university: '清华大学', rating: '4.5', reviews: '1233' },
+              { name: '张三', image: '/teacher1.png', university: '复旦大学', rating: '4.5', reviews: '1233' },
             ].map((teacher, index) => (
               <Card key={index} className="flex-shrink-0 w-36">
                 <CardHeader className="p-3">
