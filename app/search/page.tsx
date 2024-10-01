@@ -71,13 +71,13 @@ export default function SearchPage() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { title: '网站设计', instructor: '拉蒙诺·伍尔特施纳', price: '￥3990', rating: '4.5', reviews: '1233', lessons: 9, tag: '畅销' },
-              { title: 'UX研究入门', instructor: '王小莉', price: '￥1990', rating: '4.5', reviews: '1782', lessons: 12, tag: '8折' },
+              { title: '网站设计', image: '/php.png', instructor: '拉蒙诺·伍尔特施纳', price: '￥3990', rating: '4.5', reviews: '1233', lessons: 9, tag: '畅销' },
+              { title: 'UX研究入门', image: '/python.png', instructor: '王小莉', price: '￥1990', rating: '4.5', reviews: '1782', lessons: 12, tag: '8折' },
             ].map((course, index) => (
               <Card key={index} className="overflow-hidden">
                 <CardHeader className="p-0">
                   <div className="relative">
-                    <img src="/placeholder.svg" alt={course.title} className="w-full h-32 object-cover" />
+                    <img src={course.image} alt={course.title} className="w-full h-32 object-cover" />
                     <div className="absolute top-2 left-2 bg-[#636AE8] text-white text-xs py-1 px-2 rounded">
                       {course.tag}
                     </div>
