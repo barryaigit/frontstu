@@ -30,20 +30,20 @@ export default function ProfilePage() {
           </svg>
         </Button>
       </header>
-      <div className="relative">
+      <div className="relative px-5 pt-5">
         <Image
           alt="个人资料背景"
-          className="w-full h-32 object-cover"
+          className="w-full h-32 object-cover rounded-lg"
           height="128"
           src="/Image 67.png"
           style={{
             aspectRatio: "375/128",
             objectFit: "cover",
           }}
-          width="375"
+          width="335"
         />
-        <Avatar className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-24 h-24 border-4 border-white">
-          <AvatarImage alt="玛莎·罗西" src="/Rectangle.png" />
+        <Avatar className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-24 h-24 border-4 border-white z-10">
+          <AvatarImage alt="玛莎·罗西" src="/Avatar 10.png" />
           <AvatarFallback>玛莎</AvatarFallback>
         </Avatar>
       </div>
