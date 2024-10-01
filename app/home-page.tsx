@@ -13,7 +13,7 @@ export function HomePage() {
       <header className="bg-[#636AE8] text-white p-4 pt-8">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h1 className="text-2xl font-semibold">你好，小玫！</h1>
+            <h1 className="text-2xl font-semibold">你好，同学</h1>
             <p className="text-sm opacity-80">今天想学点什么呢？</p>
           </div>
           <div className="flex space-x-4">
@@ -67,12 +67,12 @@ export function HomePage() {
           </div>
           <div className="flex overflow-x-auto space-x-4 pb-4">
             {[
-              { title: 'PHP快速入门', instructor: '李明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 18 },
-              { title: 'Python基础教程', instructor: '张华', price: '￥299', rating: '4.5', reviews: '1267', lessons: 12 },
+              { title: 'PHP快速入门', image: '/php.png', instructor: '李明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 18 },
+              { title: 'Python基础教程', image: '/python.png', instructor: '张华', price: '￥299', rating: '4.5', reviews: '1267', lessons: 12 },
             ].map((course, index) => (
               <Card key={index} className="flex-shrink-0 w-48">
                 <CardHeader className="p-0">
-                  <img src="/placeholder.svg" alt={course.title} className="w-full h-24 object-cover" />
+                  <img src={course.image} alt={course.title} className="w-full h-24 object-cover" />
                   {index === 1 && (
                     <div className="absolute top-2 left-2 bg-[#636AE8] text-white text-xs py-1 px-2 rounded">
                       畅销
@@ -104,11 +104,11 @@ export function HomePage() {
           </div>
           <div className="space-y-4">
             {[
-              { title: '网页设计入门', instructor: '王小明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 9 },
-              { title: 'UX研究基础', instructor: '李晓华', price: '￥199', rating: '4.5', reviews: '1782', lessons: 12 },
+              { title: '网页设计入门', image: '/Image 77.png', instructor: '王小明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 9 },
+              { title: 'UX研究基础', image: '/Image 77.png', instructor: '李晓华', price: '￥199', rating: '4.5', reviews: '1782', lessons: 12 },
             ].map((course, index) => (
               <Card key={index} className="flex">
-                <img src="/placeholder.svg" alt={course.title} className="w-24 h-24 object-cover" />
+                <img src={course.image} alt={course.title} className="w-24 h-24 object-cover" />
                 <div className="flex-1 p-3">
                   <div className="flex justify-between">
                     <div>
@@ -139,12 +139,12 @@ export function HomePage() {
           </div>
           <div className="space-y-4">
             {[
-              { title: '数字肖像绘画', instructor: '陈艺', price: '￥459', rating: '4.5', reviews: '657', lessons: 12 },
-              { title: '工作空间装饰', instructor: '刘梦', price: '￥129', rating: '4.5', reviews: '33', lessons: 17 },
-              { title: '包装设计精髓', instructor: '黄晓明', price: '￥599', rating: '4.5', reviews: '1233', lessons: 14 },
+              { title: '数字肖像绘画', image: '/Image 81.png', instructor: '陈艺', price: '￥459', rating: '4.5', reviews: '657', lessons: 12 },
+              { title: '工作空间装饰', image: '/Image 73.png', instructor: '刘梦', price: '￥129', rating: '4.5', reviews: '33', lessons: 17 },
+              { title: '包装设计精髓', image: '/Image 77.png', instructor: '黄晓明', price: '￥599', rating: '4.5', reviews: '1233', lessons: 14 },
             ].map((course, index) => (
               <Card key={index} className="flex">
-                <img src="/placeholder.svg" alt={course.title} className="w-24 h-24 object-cover" />
+                <img src={course.image} alt={course.title} className="w-24 h-24 object-cover" />
                 <div className="flex-1 p-3">
                   <div className="flex justify-between">
                     <div>
@@ -175,14 +175,14 @@ export function HomePage() {
           </div>
           <div className="flex space-x-4 overflow-x-auto pb-4">
             {[
-              { name: '陈明', university: '北京大学', rating: '4.5', reviews: '1233' },
-              { name: '李华', university: '清华大学', rating: '4.5', reviews: '1233' },
-              { name: '张三', university: '复旦大学', rating: '4.5', reviews: '1233' },
+              { name: '陈明', image: '/Image 83.png', university: '北京大学', rating: '4.5', reviews: '1233' },
+              { name: '李华', image: '/Image 83.png', university: '清华大学', rating: '4.5', reviews: '1233' },
+              { name: '张三', image: '/Image 83.png', university: '复旦大学', rating: '4.5', reviews: '1233' },
             ].map((teacher, index) => (
               <Card key={index} className="flex-shrink-0 w-36">
                 <CardHeader className="p-3">
                   <Avatar className="w-20 h-20 mx-auto">
-                    <AvatarImage src="/placeholder.svg" />
+                    <AvatarImage src={teacher.image} />
                     <AvatarFallback>{teacher.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                 </CardHeader>
