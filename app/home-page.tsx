@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import Link from 'next/link'
 import { Bell, ShoppingCart, Bookmark, BarChart, Pen, Code, FileText, Video, Globe } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -67,31 +68,33 @@ export function HomePage() {
           </div>
           <div className="flex overflow-x-auto space-x-4 pb-4">
             {[
-              { title: 'PHP快速入门', image: '/php.png', instructor: '李明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 18 },
-              { title: 'Python基础教程', image: '/python.png', instructor: '张华', price: '￥299', rating: '4.5', reviews: '1267', lessons: 12 },
+              { id: 1, title: 'PHP快速入门', image: '/php.png', instructor: '李明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 18 },
+              { id: 2, title: 'Python基础教程', image: '/python.png', instructor: '张华', price: '￥299', rating: '4.5', reviews: '1267', lessons: 12 },
             ].map((course, index) => (
-              <Card key={index} className="flex-shrink-0 w-48">
-                <CardHeader className="p-0">
-                  <img src={course.image} alt={course.title} className="w-full h-24 object-cover" />
-                  {index === 1 && (
-                    <div className="absolute top-2 left-2 bg-[#636AE8] text-white text-xs py-1 px-2 rounded">
-                      畅销
+              <Link href="/my-courses/course-details" key={index}>
+                <Card className="flex-shrink-0 w-48 cursor-pointer hover:shadow-md transition-shadow">
+                  <CardHeader className="p-0">
+                    <img src={course.image} alt={course.title} className="w-full h-24 object-cover" />
+                    {index === 1 && (
+                      <div className="absolute top-2 left-2 bg-[#636AE8] text-white text-xs py-1 px-2 rounded">
+                        畅销
+                      </div>
+                    )}
+                  </CardHeader>
+                  <CardContent className="p-3">
+                    <h3 className="font-semibold text-sm mb-1">{course.title}</h3>
+                    <p className="text-xs text-gray-500">{course.instructor}</p>
+                    <p className="text-[#636AE8] font-bold mt-2">{course.price}</p>
+                  </CardContent>
+                  <CardFooter className="p-3 pt-0 text-xs flex justify-between items-center">
+                    <div className="flex items-center">
+                      <span className="text-yellow-500 mr-1">★</span>
+                      <span>{course.rating} ({course.reviews})</span>
                     </div>
-                  )}
-                </CardHeader>
-                <CardContent className="p-3">
-                  <h3 className="font-semibold text-sm mb-1">{course.title}</h3>
-                  <p className="text-xs text-gray-500">{course.instructor}</p>
-                  <p className="text-[#636AE8] font-bold mt-2">{course.price}</p>
-                </CardContent>
-                <CardFooter className="p-3 pt-0 text-xs flex justify-between items-center">
-                  <div className="flex items-center">
-                    <span className="text-yellow-500 mr-1">★</span>
-                    <span>{course.rating} ({course.reviews})</span>
-                  </div>
-                  <span>{course.lessons}课时</span>
-                </CardFooter>
-              </Card>
+                    <span>{course.lessons}课时</span>
+                  </CardFooter>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
@@ -104,29 +107,31 @@ export function HomePage() {
           </div>
           <div className="space-y-4">
             {[
-              { title: '网页设计入门', image: '/Image 77.png', instructor: '王小明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 9 },
-              { title: 'UX研究基础', image: '/Image 77.png', instructor: '李晓华', price: '￥199', rating: '4.5', reviews: '1782', lessons: 12 },
+              { id: 3, title: '网页设计入门', image: '/Image 77.png', instructor: '王小明', price: '￥399', rating: '4.5', reviews: '1233', lessons: 9 },
+              { id: 4, title: 'UX研究基础', image: '/Image 77.png', instructor: '李晓华', price: '￥199', rating: '4.5', reviews: '1782', lessons: 12 },
             ].map((course, index) => (
-              <Card key={index} className="flex">
-                <img src={course.image} alt={course.title} className="w-24 h-24 object-cover" />
-                <div className="flex-1 p-3">
-                  <div className="flex justify-between">
-                    <div>
-                      <h3 className="font-semibold text-sm">{course.title}</h3>
-                      <p className="text-xs text-gray-500">{course.instructor}</p>
+              <Link href="/my-courses/course-details" key={index}>
+                <Card className="flex cursor-pointer hover:shadow-md transition-shadow">
+                  <img src={course.image} alt={course.title} className="w-24 h-24 object-cover" />
+                  <div className="flex-1 p-3">
+                    <div className="flex justify-between">
+                      <div>
+                        <h3 className="font-semibold text-sm">{course.title}</h3>
+                        <p className="text-xs text-gray-500">{course.instructor}</p>
+                      </div>
+                      <Bookmark className="w-5 h-5 text-gray-400" />
                     </div>
-                    <Bookmark className="w-5 h-5 text-gray-400" />
-                  </div>
-                  <p className="text-[#636AE8] font-bold mt-2">{course.price}</p>
-                  <div className="flex justify-between items-center mt-2 text-xs">
-                    <div className="flex items-center">
-                      <span className="text-yellow-500 mr-1">★</span>
-                      <span>{course.rating} ({course.reviews})</span>
+                    <p className="text-[#636AE8] font-bold mt-2">{course.price}</p>
+                    <div className="flex justify-between items-center mt-2 text-xs">
+                      <div className="flex items-center">
+                        <span className="text-yellow-500 mr-1">★</span>
+                        <span>{course.rating} ({course.reviews})</span>
+                      </div>
+                      <span>{course.lessons}课时</span>
                     </div>
-                    <span>{course.lessons}课时</span>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
@@ -139,30 +144,32 @@ export function HomePage() {
           </div>
           <div className="space-y-4">
             {[
-              { title: '数字肖像绘画', image: '/Image 81.png', instructor: '陈艺', price: '￥459', rating: '4.5', reviews: '657', lessons: 12 },
-              { title: '工作空间装饰', image: '/Image 73.png', instructor: '刘梦', price: '￥129', rating: '4.5', reviews: '33', lessons: 17 },
-              { title: '包装设计精髓', image: '/Image 77.png', instructor: '黄晓明', price: '￥599', rating: '4.5', reviews: '1233', lessons: 14 },
+              { id: 5, title: '数字肖像绘画', image: '/Image 81.png', instructor: '陈艺', price: '￥459', rating: '4.5', reviews: '657', lessons: 12 },
+              { id: 6, title: '工作空间装饰', image: '/Image 73.png', instructor: '刘梦', price: '￥129', rating: '4.5', reviews: '33', lessons: 17 },
+              { id: 7, title: '包装设计精髓', image: '/Image 77.png', instructor: '黄晓明', price: '￥599', rating: '4.5', reviews: '1233', lessons: 14 },
             ].map((course, index) => (
-              <Card key={index} className="flex">
-                <img src={course.image} alt={course.title} className="w-24 h-24 object-cover" />
-                <div className="flex-1 p-3">
-                  <div className="flex justify-between">
-                    <div>
-                      <h3 className="font-semibold text-sm">{course.title}</h3>
-                      <p className="text-xs text-gray-500">{course.instructor}</p>
+              <Link href="/my-courses/course-details" key={index}>
+                <Card className="flex cursor-pointer hover:shadow-md transition-shadow">
+                  <img src={course.image} alt={course.title} className="w-24 h-24 object-cover" />
+                  <div className="flex-1 p-3">
+                    <div className="flex justify-between">
+                      <div>
+                        <h3 className="font-semibold text-sm">{course.title}</h3>
+                        <p className="text-xs text-gray-500">{course.instructor}</p>
+                      </div>
+                      <Bookmark className="w-5 h-5 text-gray-400" />
                     </div>
-                    <Bookmark className="w-5 h-5 text-gray-400" />
-                  </div>
-                  <p className="text-[#636AE8] font-bold mt-2">{course.price}</p>
-                  <div className="flex justify-between items-center mt-2 text-xs">
-                    <div className="flex items-center">
-                      <span className="text-yellow-500 mr-1">★</span>
-                      <span>{course.rating} ({course.reviews})</span>
+                    <p className="text-[#636AE8] font-bold mt-2">{course.price}</p>
+                    <div className="flex justify-between items-center mt-2 text-xs">
+                      <div className="flex items-center">
+                        <span className="text-yellow-500 mr-1">★</span>
+                        <span>{course.rating} ({course.reviews})</span>
+                      </div>
+                      <span>{course.lessons}课时</span>
                     </div>
-                    <span>{course.lessons}课时</span>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
