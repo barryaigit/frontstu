@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Heart, MessageCircle, Share2, Star, MoreHorizontal, Plus, Home, Search, Bell, User, X, Image as ImageIcon, Calendar, Link2 } from 'lucide-react'
+import { Heart, MessageCircle, Share2, Star, MoreHorizontal, Plus, X, Image as ImageIcon, Calendar, Link2 } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
