@@ -13,46 +13,46 @@ import { Textarea } from "@/components/ui/textarea"
 const statusData = [
   { 
     id: 1,
-    user: { name: 'Michael Suew', avatar: '/placeholder.svg' },
-    time: '10m',
+    user: { name: '张三', avatar: '/placeholder.svg' },
+    time: '10分钟前',
     image: '/placeholder.svg',
     likes: 342,
     comments: 45,
     shares: 209,
     stars: 1000,
-    content: 'London is satisfied, Paris is resigned, but New York is always hopeful. Always it believes that something good is about to come off, and it must hurry to meet it...',
+    content: '北京是一座充满活力的城市，总是让人感到希望。它相信美好的事物即将发生，急切地想要迎接...',
   },
   { 
     id: 2,
-    user: { name: 'Sarah Farihah', avatar: '/placeholder.svg' },
-    time: '1h',
+    user: { name: '李四', avatar: '/placeholder.svg' },
+    time: '1小时前',
     image: '/placeholder.svg',
     likes: 523,
     comments: 78,
     shares: 156,
     stars: 2100,
-    content: 'The city seen from the Queensboro Bridge is always the city seen for the first time, in its first wild promise of all the mystery and the beauty in the world.',
+    content: '从长城上俯瞰北京，总是给人一种全新的感觉，仿佛第一次见到这座城市，它承载着世界所有的神秘和美丽。',
   },
   { 
     id: 3,
-    user: { name: 'Jason Lee', avatar: '/placeholder.svg' },
-    time: '3h',
+    user: { name: '王五', avatar: '/placeholder.svg' },
+    time: '3小时前',
     image: '/placeholder.svg',
     likes: 231,
     comments: 34,
     shares: 89,
     stars: 750,
-    content: 'One belongs to New York instantly, one belongs to it as much in five minutes as in five years.',
+    content: '一个人属于北京，可能只需要五分钟，也可能需要五年，但无论如何，这种归属感是即刻而永恒的。',
   },
 ]
 
 const users = [
-  { name: 'You', avatar: '/placeholder.svg', status: 'Active', color: '#CED0F8' },
-  { name: 'Sally', avatar: '/placeholder.svg', status: 'In class', color: '#D8CBF5' },
-  { name: 'Jason', avatar: '/placeholder.svg', status: 'Studying', color: '#BAF3EB' },
-  { name: 'Jena', avatar: '/placeholder.svg', status: 'Break', color: '#F8CEDB' },
-  { name: 'Michael', avatar: '/placeholder.svg', status: 'Offline', color: '#F8DBD0' },
-  { name: 'Liam', avatar: '/placeholder.svg', status: 'Away', color: '#F3F4F6' },
+  { name: '你', avatar: '/placeholder.svg', status: '在线', color: '#CED0F8' },
+  { name: '小明', avatar: '/placeholder.svg', status: '上课中', color: '#D8CBF5' },
+  { name: '小红', avatar: '/placeholder.svg', status: '学习中', color: '#BAF3EB' },
+  { name: '小华', avatar: '/placeholder.svg', status: '休息', color: '#F8CEDB' },
+  { name: '小李', avatar: '/placeholder.svg', status: '离线', color: '#F8DBD0' },
+  { name: '小张', avatar: '/placeholder.svg', status: '离开', color: '#F3F4F6' },
 ]
 
 export function StatusPageComponent() {
@@ -60,13 +60,19 @@ export function StatusPageComponent() {
   const [newStatusContent, setNewStatusContent] = useState('')
 
   const handleCreateStatus = () => {
-    console.log('Creating new status:', newStatusContent)
+    console.log('创建新状态:', newStatusContent)
     setNewStatusContent('')
     setIsCreatingStatus(false)
   }
 
   return (
-    <div className="relative pb-16">
+    <div className="relative pb-16 font-sans">
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+        body {
+          font-family: 'Noto Sans SC', sans-serif;
+        }
+      `}</style>
       <Card className="w-full max-w-md mx-auto">
         <CardHeader className="p-4 bg-[#F8F9FA]">
           <ScrollArea className="w-full overflow-x-auto">
@@ -106,7 +112,7 @@ export function StatusPageComponent() {
                     <p className="text-sm mb-4">{status.content}</p>
                     <Image
                       src={status.image}
-                      alt="Status image"
+                      alt="状态图片"
                       width={368}
                       height={352}
                       className="w-full object-cover rounded-md"
@@ -164,31 +170,23 @@ export function StatusPageComponent() {
         </Button>
       </nav>
       {isCreatingStatus && (
-        <div className="fixed inset-0 bg-[#E3E6EA] flex flex-col">
+        <div className="fixed inset-0 bg-white flex flex-col">
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
-            <h3 className="text-sm font-medium text-[#272727]">Create Status</h3>
+            <h3 className="text-sm font-medium text-[#272727]">创建状态</h3>
             <Button variant="ghost" size="icon" onClick={() => setIsCreatingStatus(false)}>
               <X className="h-6 w-6 text-[#131313]" />
             </Button>
           </div>
           <div className="flex-1 p-4 overflow-y-auto">
-            <div className="flex items-center mb-4">
-              <Avatar className="w-8 h-8">
-                <AvatarImage src="/placeholder.svg" alt="Your avatar" />
-                <AvatarFallback>You</AvatarFallback>
-              </Avatar>
-              <span className="ml-2 text-xs text-[#1A1A1A]">Your Name</span>
-            </div>
             <Textarea
-              placeholder="What's on your mind?"
+              placeholder="你在想什么？"
               value={newStatusContent}
               onChange={(e) => setNewStatusContent(e.target.value)}
-              className="min-h-[100px] text-sm text-[#242424] bg-transparent border-none resize-none focus:ring-0"
+              className="min-h-[200px] text-sm text-[#242424] bg-transparent border border-gray-300 rounded-md resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
-          <div className="p-4 bg-white">
-            <div className="flex justify-between mb-4">
-              <span className="text-xs text-[#7F7F7F]">Add</span>
+          <div className="p-4 bg-white border-t border-gray-200">
+            <div className="flex justify-end mb-4">
               <div className="flex space-x-4">
                 <Button variant="ghost" size="icon" className="rounded-full">
                   <ImageIcon className="h-6 w-6 text-gray-600" />
@@ -199,13 +197,10 @@ export function StatusPageComponent() {
                 <Button variant="ghost" size="icon" className="rounded-full">
                   <Link2 className="h-6 w-6 text-gray-600" />
                 </Button>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Plus className="h-6 w-6 text-gray-600" />
-                </Button>
               </div>
             </div>
             <Button className="w-full bg-black text-white rounded-md" onClick={handleCreateStatus}>
-              Post
+              发布
             </Button>
           </div>
         </div>
