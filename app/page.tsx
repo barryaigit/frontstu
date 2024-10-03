@@ -1,4 +1,4 @@
-import { StatusPageComponent } from "@/components/status-page"
+import { StatusPageComponent } from "./status-page"
 export default function Page() {
   return <StatusPageComponent />
 }

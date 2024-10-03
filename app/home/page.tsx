@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { BottomNavigation } from "@/components/BottomNavigation"
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <div className="bg-white min-h-screen pb-16 font-sans">
       {/* 头部 */}

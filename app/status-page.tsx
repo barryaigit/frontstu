@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
+import { BottomNavigation } from "@/components/BottomNavigation"
 
 const statusData = [
   { 
@@ -152,23 +153,9 @@ export function StatusPageComponent() {
       >
         <Plus className="h-5 w-5" />
       </Button>
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center h-16">
-        <Button variant="ghost" size="icon" className="text-gray-500">
-          <Home className="h-6 w-6" />
-        </Button>
-        <Button variant="ghost" size="icon" className="text-gray-500">
-          <Search className="h-6 w-6" />
-        </Button>
-        <Button variant="ghost" size="icon" className="text-primary">
-          <MessageCircle className="h-6 w-6" />
-        </Button>
-        <Button variant="ghost" size="icon" className="text-gray-500">
-          <Bell className="h-6 w-6" />
-        </Button>
-        <Button variant="ghost" size="icon" className="text-gray-500">
-          <User className="h-6 w-6" />
-        </Button>
-      </nav>
+      {/* 底部导航 */}
+      <BottomNavigation />
+
       {isCreatingStatus && (
         <div className="fixed inset-0 bg-white flex flex-col">
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
